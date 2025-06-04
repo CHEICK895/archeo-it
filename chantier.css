@@ -1,0 +1,69 @@
+.navbar {
+    background: linear-gradient(45deg, #8B4513, #D2691E) !important;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); 
+    font-family: 'Georgia', serif;
+    padding: 20px;
+}
+.nav-link {
+    color: white !important;
+}
+.card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #c2b280;       
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); /* ombre douce */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-5px);      /* petit effet de soulèvement au survol */
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+  border-color: #a68b4c;            /* couleur de bordure un peu plus foncée au survol */
+}
+.col {
+  margin-bottom: 20px;
+}
+
+.card-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+}
+#chantiers {
+  background: #F5F5DC ;
+  font-family: 'Georgia', serif;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.footer{
+    background-color: #3b4037;
+    color: white;
+    margin-bottom: 20px 0;         
+    padding: 40px 0;
+    margin-top: 50px 0;
+    font-family: 'Georgia', serif;
+    
+}
+h3{
+    font-family: 'Georgia', serif;
+}
+.reseau{
+    color: white;
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Georgia', serif;
+}
+header{
+    background: linear-gradient(rgba(139, 69, 19, 0.8), rgba(210, 105, 30, 0.8)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23D2691E" width="1200" height="600"/><path fill="%23F4A460" d="M0,400 Q300,200 600,300 T1200,250 L1200,600 L0,600 Z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            font-family: 'Georgia', serif;
+}

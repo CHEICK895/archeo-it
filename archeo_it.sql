@@ -1,0 +1,10 @@
+CREATE DATABASE IF NOT EXISTS archeo_it;
+USE archeo_it;
+
+CREATE TABLE IF NOT EXISTS actualites (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    titre VARCHAR(255),
+    contenu TEXT,
+    image_path VARCHAR(255),
+    date_pub TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
