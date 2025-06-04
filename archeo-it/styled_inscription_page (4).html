@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Inscription utilisateur</title>
+    <style>
+        /* Supprime les marges par défaut du navigateur */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            
+            /* Image d'arrière-plan archéologique - Site de fouilles */
+            background-image: url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover; /* L'image couvre tout l'écran */
+            background-position: center; /* Centre l'image */
+            background-repeat: no-repeat; /* Pas de répétition */
+            
+            /* Couleur de superposition pour assombrir l'image */
+            background-color: rgba(139, 69, 19, 0.7);
+            background-blend-mode: overlay;
+            
+            /* Hauteur minimum = toute la hauteur de l'écran */
+            min-height: 100vh;
+            
+            /* Centre le formulaire au milieu de l'écran */
+            display: flex;
+            justify-content: center; /* Centre horizontalement */
+            align-items: center; /* Centre verticalement */
+            padding: 20px;
+        }
+
+        /* Style du conteneur principal du formulaire */
+        .formulaire-container {
+            background-color: rgba(245, 222, 179, 0.95); /* Beige transparent */
+            padding: 40px; /* Espacement intérieur */
+            border-radius: 15px; /* Coins arrondis */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Ombre portée */
+            width: 100%;
+            max-width: 400px; /* Largeur maximale */
+            border: 2px solid #D2691E; /* Bordure orange */
+        }
+
+        /* Style du titre principal */
+        h2 {
+            color: #8B4513; /* Brun foncé */
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+
+        /* Style pour chaque groupe de champ (label + input) */
+        .champ-groupe {
+            margin-bottom: 20px; /* Espacement entre les champs */
+        }
+
+        /* Style des étiquettes (labels) */
+        label {
+            display: block; /* Chaque label sur sa propre ligne */
+            margin-bottom: 8px;
+            color: #654321; /* Brun */
+            font-weight: bold;
+        }
+
+        /* Style des champs de saisie */
+        input[type="email"],
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 12px; /* Espacement intérieur */
+            border: 2px solid #D2691E; /* Bordure orange */
+            border-radius: 5px; /* Coins légèrement arrondis */
+            font-size: 16px;
+            background-color: white;
+            
+            /* Supprime le contour par défaut */
+            outline: none;
+        }
+
+        /* Style quand on clique dans un champ (focus) */
+        input[type="email"]:focus,
+        input[type="text"]:focus,
+        input[type="number"]:focus {
+            border-color: #CD853F; /* Change la couleur de bordure */
+            box-shadow: 0 0 5px rgba(205, 133, 63, 0.5); /* Ajoute une lueur */
+        }
+
+        /* Style du menu déroulant */
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #D2691E;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: white;
+            cursor: pointer; /* Change le curseur au survol */
+        }
+
+        /* Style du bouton de soumission */
+        .bouton-creer {
+            width: 100%;
+            padding: 15px;
+            background-color: #8B4513; /* Brun foncé */
+            color: white;
+            border: none; /* Supprime la bordure par défaut */
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        /* Style du bouton au survol de la souris */
+        .bouton-creer:hover {
+            background-color: #654321; /* Brun plus foncé */
+        }
+
+        /* Message d'information */
+        .info-mot-de-passe {
+            background-color: #D2691E; /* Orange */
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        /* Groupe de champs sur la même ligne */
+        .ligne-champs {
+            display: flex; /* Place les éléments côte à côte */
+            gap: 15px; /* Espacement entre les éléments */
+        }
+
+        /* Chaque champ prend la même largeur */
+        .ligne-champs .champ-groupe {
+            flex: 1;
+        }
+
+        /* Style responsive pour petits écrans */
+        @media (max-width: 600px) {
+            .formulaire-container {
+                padding: 20px;
+                margin: 10px;
+            }
+            
+            /* Sur petit écran, les champs reviennent en colonne */
+            .ligne-champs {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="formulaire-container">
+        <h2>🏺 Créer un nouvel utilisateur</h2>
+        
+        <div class="info-mot-de-passe">
+            🔐 Un mot de passe sécurisé sera généré automatiquement
+        </div>
+
+        <form method="post" action="traitement_inscription.php">
+            
+            <!-- Champ Email -->
+            <div class="champ-groupe">
+                <label>📧 Email :</label>
+                <input type="email" name="email" required placeholder="Votre adresse email">
+            </div>
+
+            <!-- Champ Nom -->
+            <div class="champ-groupe">
+                <label>👤 Nom :</label>
+                <input type="text" name="nom" required placeholder="Votre nom complet">
+            </div>
+
+            <!-- Ligne avec Type et Longueur côte à côte -->
+            <div class="ligne-champs">
+                <!-- Type de mot de passe -->
+                <div class="champ-groupe">
+                    <label>🔒 Type de mot de passe :</label>
+                    <select name="mode">
+                        <option value="1">Lettres seulement</option>
+                        <option value="2" selected>Lettres + Chiffres</option>
+                        <option value="3">Lettres + Chiffres + Symboles</option>
+                    </select>
+                </div>
+
+                <!-- Longueur du mot de passe -->
+                <div class="champ-groupe">
+                    <label>📏 Longueur :</label>
+                    <input type="number" name="longueur" value="12" min="6" max="50">
+                </div>
+            </div>
+
+            <!-- Bouton de soumission -->
+            <button type="submit" class="bouton-creer">
+                Créer l'utilisateur
+            </button>
+        </form>
+    </div>
+</body>
+</html>
